@@ -122,7 +122,7 @@ export const RideProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // Calculate estimated distance, time and fare
     const distance = Math.round((Math.random() * 10 + 1) * 10) / 10; // 1.0 to 11.0 miles
     const time = Math.round(distance * 3 + Math.random() * 5); // Roughly 3 min per mile + random time
-    const fare = Math.round((distance * 2.5 + 5) * 100) / 100; // $2.5 per mile + $5 base fare
+    const fare = Math.round((distance * 2.5 + 5) * 100) / 100; // ₹2.5 per mile + ₹5 base fare
     
     const newRide: Ride = {
       id: 'ride-' + Math.random().toString(36).substring(2, 9),

@@ -266,7 +266,7 @@ const DriverDashboard: React.FC = () => {
                     <div key={ride.id} className="border rounded-lg p-4 flex flex-col md:flex-row md:items-center justify-between">
                       <div>
                         <div className="font-semibold">{ride.pickup_location.address} → {ride.destination.address}</div>
-                        <div className="text-sm text-gray-500">Type: {ride.ride_type} | Price: ${ride.estimated_price}</div>
+                        <div className="text-sm text-gray-500">Type: {ride.ride_type} | Price: ₹{ride.estimated_price.toFixed(2)}</div>
                       </div>
                       <button
                         className={`mt-2 md:mt-0 px-4 py-2 rounded bg-green-600 text-white hover:bg-green-700 flex items-center ${acceptingId === ride.id ? 'opacity-50 cursor-not-allowed' : ''}`}
@@ -292,7 +292,7 @@ const DriverDashboard: React.FC = () => {
                   <Clock className="h-5 w-5 text-blue-600 mr-2" />
                   <span className="text-gray-700 text-sm">Today</span>
                 </div>
-                <div className="text-2xl font-bold text-gray-900">${earnings.today.toFixed(2)}</div>
+                <div className="text-2xl font-bold text-gray-900">₹{earnings.today.toFixed(2)}</div>
               </div>
               
               <div className="bg-green-50 p-4 rounded-lg">
@@ -300,7 +300,7 @@ const DriverDashboard: React.FC = () => {
                   <Activity className="h-5 w-5 text-green-600 mr-2" />
                   <span className="text-gray-700 text-sm">This Week</span>
                 </div>
-                <div className="text-2xl font-bold text-gray-900">${earnings.week.toFixed(2)}</div>
+                <div className="text-2xl font-bold text-gray-900">₹{earnings.week.toFixed(2)}</div>
               </div>
               
               <div className="bg-violet-50 p-4 rounded-lg">
@@ -308,7 +308,7 @@ const DriverDashboard: React.FC = () => {
                   <DollarSign className="h-5 w-5 text-violet-600 mr-2" />
                   <span className="text-gray-700 text-sm">This Month</span>
                 </div>
-                <div className="text-2xl font-bold text-gray-900">${earnings.month.toFixed(2)}</div>
+                <div className="text-2xl font-bold text-gray-900">₹{earnings.month.toFixed(2)}</div>
               </div>
             </div>
             
@@ -386,7 +386,7 @@ const DriverDashboard: React.FC = () => {
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="text-lg font-semibold text-gray-900">${trip.fare.toFixed(2)}</p>
+                      <p className="text-lg font-semibold text-gray-900">₹{trip.fare.toFixed(2)}</p>
                       <p className="text-xs text-gray-500">
                         {trip.date.toLocaleDateString('en-US', { 
                           month: 'short', 

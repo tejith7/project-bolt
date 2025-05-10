@@ -168,7 +168,7 @@ const RiderDashboard: React.FC = () => {
                     <div>
                       <span className="text-sm font-medium text-gray-500">Fare</span>
                       <p className="text-gray-900 font-medium">
-                        ${currentRide.estimatedFare.toFixed(2)}
+                        ₹{currentRide.estimatedFare.toFixed(2)}
                       </p>
                     </div>
                   </div>
@@ -310,7 +310,7 @@ const RiderDashboard: React.FC = () => {
                           {ride.status.charAt(0).toUpperCase() + ride.status.slice(1)}
                         </span>
                         <p className="mt-2 text-lg font-semibold text-gray-900">
-                          ${ride.estimatedFare.toFixed(2)}
+                          ₹{ride.estimatedFare.toFixed(2)}
                         </p>
                       </div>
                     </div>

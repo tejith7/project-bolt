@@ -340,7 +340,7 @@ const BookRide: React.FC = () => {
                       <DollarSign className="h-4 w-4 text-gray-500 mr-1" />
                       <span className="text-xs text-gray-500">Price</span>
                     </div>
-                    <p className="font-semibold">${estimatedPrice.toFixed(2)}</p>
+                    <p className="font-semibold">₹{estimatedPrice.toFixed(2)}</p>
                   </div>
                 </div>
               </div>
@@ -376,7 +376,7 @@ const BookRide: React.FC = () => {
                           <div className="flex justify-between">
                             <h4 className="font-medium">{rideType.name}</h4>
                             <span className="font-semibold">
-                              ${(estimatedPrice * rideType.price).toFixed(2)}
+                              ₹{(estimatedPrice * rideType.price).toFixed(2)}
                             </span>
                           </div>
                           <p className="text-sm text-gray-500 mt-1">{rideType.description}</p>
@@ -488,7 +488,7 @@ const BookRide: React.FC = () => {
                   <span className="font-medium text-gray-700">{destination.address.split(',')[0]}</span>{' '}
                   will take approximately{' '}
                   <span className="font-medium text-gray-700">{estimatedTime} minutes</span> and cost{' '}
-                  <span className="font-medium text-gray-700">${estimatedPrice.toFixed(2)}</span>.
+                  <span className="font-medium text-gray-700">₹{estimatedPrice.toFixed(2)}</span>.
                 </p>
               )}
             
