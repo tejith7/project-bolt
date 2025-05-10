@@ -6,9 +6,11 @@ interface Location {
   lng: number;
 }
 
+type RideStatus = 'pending' | 'searching' | 'matched' | 'pickup' | 'ongoing' | 'completed' | 'cancelled';
+
 export interface Ride {
   id: string;
-  status: 'pending' | 'searching' | 'matched' | 'pickup' | 'ongoing' | 'completed' | 'cancelled';
+  status: RideStatus;
   pickupLocation: Location;
   destination: Location;
   estimatedTime: number; // in minutes
@@ -157,7 +159,7 @@ export const RideProvider: React.FC<{ children: React.ReactNode }> = ({ children
         
         // Simulate driver arriving for pickup after 5 more seconds
         setTimeout(() => {
-          if (updatedRide.status !== 'cancelled') {
+          if (updatedRide.status === 'matched') {
             setCurrentRide(prev => prev ? { ...prev, status: 'pickup' } : null);
             
             // Simulate ride starting after 4 more seconds
@@ -169,10 +171,10 @@ export const RideProvider: React.FC<{ children: React.ReactNode }> = ({ children
                 setCurrentRide(prev => {
                   if (!prev) return null;
                   
-                  const completedRide = { 
-                    ...prev, 
-                    status: 'completed',
-                    completedAt: new Date() 
+                  const completedRide: Ride = {
+                    ...prev,
+                    status: 'completed' as RideStatus,
+                    completedAt: new Date()
                   };
                   
                   // Add to history

@@ -31,7 +31,7 @@ interface Ride {
 const DriverDashboard: React.FC = () => {
   const { user } = useUser();
   const [isOnline, setIsOnline] = useState(false);
-  const [currentLocation, setCurrentLocation] = useState({
+  const [currentLocation] = useState({
     address: '123 Market St, Downtown',
     lat: 37.7749,
     lng: -122.4194

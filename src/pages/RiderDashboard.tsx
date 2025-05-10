@@ -225,7 +225,6 @@ const RiderDashboard: React.FC = () => {
                   <Map
                     pickupLocation={currentRide.pickupLocation}
                     destination={currentRide.destination}
-                    showRoute={true}
                     currentLocation={currentRide.status === 'pickup' || currentRide.status === 'ongoing' ? {
                       address: 'Current Location',
                       lat: 37.7749,

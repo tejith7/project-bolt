@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Clock, MapPin, Car, DollarSign, Filter, Search, ChevronRight, ChevronDown, ChevronUp } from 'lucide-react';
-import { useRide, Ride } from '../context/RideContext';
+import { Clock, MapPin, Car, Filter, Search, ChevronRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { useRide } from '../context/RideContext';
 
 const RideHistory: React.FC = () => {
   const { rideHistory } = useRide();

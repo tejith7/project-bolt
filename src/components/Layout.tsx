@@ -2,11 +2,9 @@ import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { useUser } from '../context/UserContext';
 
 const Layout: React.FC = () => {
   const location = useLocation();
-  const { isAuthenticated } = useUser();
   
   // Don't show navbar on tracking page for cleaner UI
   const isTrackingPage = location.pathname.includes('/ride/');

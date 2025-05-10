@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL || '',

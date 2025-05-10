@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { MapPin, Clock, DollarSign, Car, ChevronRight, Search, ArrowRight, X, User } from 'lucide-react';
+import { MapPin, Clock, DollarSign, Car, ChevronRight, X, User } from 'lucide-react';
 import { useRide } from '../context/RideContext';
 import Map from '../components/Map';
 import { createClient } from '@supabase/supabase-js';
@@ -66,18 +66,18 @@ const BookRide: React.FC = () => {
   const [estimatedPrice, setEstimatedPrice] = useState(0);
   const [estimatedDistance, setEstimatedDistance] = useState(0);
   const [estimatedTime, setEstimatedTime] = useState(0);
-  const [savedLocations, setSavedLocations] = useState<Location[]>([]);
+  const [savedLocations] = useState<Location[]>([]);
   const [searchResults, setSearchResults] = useState<Location[]>([]);
 
   // Fetch saved locations from Supabase
   useEffect(() => {
     const fetchSavedLocations = async () => {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('saved_locations')
         .select('*');
       
-      if (data && !error) {
-        setSavedLocations(data);
+      if (error) {
+        console.error('Error fetching saved locations:', error);
       }
     };
 
@@ -166,7 +166,7 @@ const BookRide: React.FC = () => {
     
     try {
       // Save ride request to Supabase
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('ride_requests')
         .insert([
           {
@@ -469,15 +469,6 @@ const BookRide: React.FC = () => {
               <Map
                 pickupLocation={pickupLocation || undefined}
                 destination={destination || undefined}
-                showRoute={!!(pickupLocation && destination)}
-                interactive={true}
-                onLocationSelect={(location) => {
-                  if (!pickupLocation) {
-                    handleSelectPickup(location);
-                  } else if (!destination) {
-                    handleSelectDestination(location);
-                  }
-                }}
                 className="w-full h-full"
               />
             </div>

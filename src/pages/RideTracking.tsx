@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { MapPin, Phone, MessageSquare, Clock, Star, DollarSign, AlertTriangle, CheckCircle, ArrowLeft, ThumbsUp, ThumbsDown, X } from 'lucide-react';
+import { MapPin, Phone, MessageSquare, Clock, Star, DollarSign, AlertTriangle, CheckCircle, ArrowLeft, ThumbsUp, X } from 'lucide-react';
 import { useRide, Ride } from '../context/RideContext';
 import Map from '../components/Map';
 
@@ -99,7 +99,6 @@ const RideTracking: React.FC = () => {
         <Map
           pickupLocation={ride.pickupLocation}
           destination={ride.destination}
-          showRoute={true}
           currentLocation={
             ride.status === 'pickup' || ride.status === 'ongoing'
               ? { 

@@ -42,7 +42,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   // Mock login function
-  const login = async (email: string, password: string) => {
+  const login = async (email: string, _password: string) => {
     setLoading(true);
     
     // Simulate API call delay
@@ -64,7 +64,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   // Mock signup function
-  const signup = async (name: string, email: string, password: string, type: 'rider' | 'driver') => {
+  const signup = async (name: string, email: string, _password: string, type: 'rider' | 'driver') => {
     setLoading(true);
     
     // Simulate API call delay
